@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>الورش المجانية - منصة أفق</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الورش المجانية</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #fff;
       color: #333;
     }
 
-    /* الشريط العلوي */
     header {
       background-color: #f4f4f4;
       display: flex;
@@ -25,7 +23,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
     }
 
     .logo img {
@@ -52,7 +50,6 @@
       color: #333;
     }
 
-    /* القائمة الجانبية */
     .overlay {
       position: fixed;
       top: 0;
@@ -103,7 +100,6 @@
       background-color: rgba(255,255,255,0.1);
     }
 
-    /* المحتوى الرئيسي */
     main {
       text-align: center;
       padding: 50px 20px;
@@ -111,64 +107,71 @@
 
     main h1 {
       font-size: 42px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
-    .workshop {
-      margin: 40px auto;
-      max-width: 800px;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      background-color: #fafafa;
-    }
-
-    .workshop h2 {
-      margin-top: 0;
-      color: #0077cc;
-    }
-
-    .parts-list {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 20px;
-    }
-
-    .parts-list li {
-      margin: 8px 0;
-    }
-
-    .parts-list a {
-      text-decoration: none;
-      color: #0077cc;
+    .yellow-box {
+      background-color: #FFD700;
+      padding: 10px 20px;
+      display: inline-block;
+      margin: 20px auto;
+      font-size: 20px;
       font-weight: bold;
+      border-radius: 5px;
     }
 
-    .parts-list a:hover {
-      text-decoration: underline;
+    .workshops {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+      padding: 0 20px;
     }
 
-    .part-section {
-      margin: 60px auto;
-      max-width: 800px;
-      padding: 20px;
-      border-top: 2px solid #0077cc;
+    .workshop-card {
+      background-color: #fff8cc;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+      position: relative;
     }
 
-    .part-section h3 {
-      margin-top: 0;
+    .workshop-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .workshop-title {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #0077cc;
+    }
+
+    .workshop-trainer {
+      font-size: 14px;
       color: #333;
+      margin-top: 5px;
+    }
+
+    .workshop-details {
+      display: none;
+      text-align: right;
+      margin-top: 10px;
+      font-size: 14px;
+      background-color: #fff3aa;
+      padding: 10px;
+      border-radius: 6px;
     }
 
     footer {
       background-color: #FFD700;
       text-align: center;
       padding: 20px;
-    }
-
-    footer p {
-      margin: 10px 0;
-      line-height: 1.6;
     }
 
     .credit-bar {
@@ -187,94 +190,68 @@
 </head>
 <body>
 
-  <!-- الخلفية الشفافة -->
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-  <!-- القائمة الجانبية -->
   <div class="side-menu" id="sideMenu">
     <span class="close-btn" onclick="toggleMenu()">✖ إغلاق</span>
     <a href="index.html">الصفحة الرئيسية</a>
+    <a href="about.html">معلومات عنا</a>
+    <a href="pag.html">الدورات</a>
     <a href="pag1.html">الورش المجانية</a>
     <a href="pag2.html">اتصل بنا</a>
     <a href="mder.html">مدربينا</a>
   </div>
 
-  <!-- الشريط العلوي -->
   <header>
     <div class="logo">
       <img src="logo.jpg" alt="شعار المنصة">
       <nav>
-        <a href="index.html">الرئيسية</a>
-        <a href="about.html">من نحن</a>
-        <a href="pag.html">الدورات</a>
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="about.html">معلومات عنا</a>
+        <a href="pag.html">استكشاف الدورات</a>
       </nav>
     </div>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </header>
 
-  <!-- المحتوى الرئيسي -->
   <main>
-    <h1>الورش المجانية</h1>
+    <h1>منصة أفق للتدريب والاستشارات</h1>
+    <div class="yellow-box">الورش المجانية</div>
 
-    <!-- ورشة 1 -->
-    <div class="workshop">
-      <h2>ورشة تصميم جرافيك</h2>
-      <ul class="parts-list">
-        <li><a href="#design-part1">الجزء الأول: مقدمة</a></li>
-        <li><a href="#design-part2">الجزء الثاني: أدوات مجانية</a></li>
-        <li><a href="#design-part3">الجزء الثالث: تطبيق عملي</a></li>
-      </ul>
+    <div class="workshops">
+      <!-- نموذج ورشة -->
+      <div class="workshop-card" onclick="toggleDetails(this)">
+        <img src="workshop1.jpg" alt="ورشة 1">
+        <div class="workshop-title">ورشة التخطيط الشخصي</div>
+        <div class="workshop-trainer">د. أحمد حسن المبارك</div>
+        <div class="workshop-details">
+          🗓 التاريخ: 15 أغسطس 2025<br>
+          ⏰ الوقت: 5 مساءً بتوقيت عدن<br>
+          📍 المكان: عبر Zoom<br>
+          🎯 محاور الورشة: تحديد الأهداف، إدارة الوقت، بناء خطة شخصية
+        </div>
+      </div>
+
+      <div class="workshop-card" onclick="toggleDetails(this)">
+        <img src="workshop2.jpg" alt="ورشة 2">
+        <div class="workshop-title">ورشة مهارات التواصل</div>
+        <div class="workshop-trainer">أ. عبير عيسى</div>
+        <div class="workshop-details">
+          🗓 التاريخ: 20 أغسطس 2025<br>
+          ⏰ الوقت: 7 مساءً<br>
+          📍 المكان: مركز أفق - عدن<br>
+          🎯 محاور الورشة: فن الإنصات، لغة الجسد، التواصل الفعال
+        </div>
+      </div>
+
+      <!-- أضف المزيد بنفس التنسيق -->
     </div>
-
-    <!-- ورشة 2 -->
-    <div class="workshop">
-      <h2>ورشة تطوير مواقع</h2>
-      <ul class="parts-list">
-        <li><a href="#web-part1">الجزء الأول: HTML</a></li>
-        <li><a href="#web-part2">الجزء الثاني: CSS</a></li>
-        <li><a href="#web-part3">الجزء الثالث: مشروع نهائي</a></li>
-      </ul>
-    </div>
-
-    <!-- أقسام الورش -->
-    <div class="part-section" id="design-part1">
-      <h3>الجزء الأول: مقدمة</h3>
-      <p>مقدمة في مفاهيم التصميم الجرافيكي وأهميته.</p>
-    </div>
-
-    <div class="part-section" id="design-part2">
-      <h3>الجزء الثاني: أدوات مجانية</h3>
-      <p>استخدام أدوات مثل Canva وPhotopea لتصميم احترافي.</p>
-    </div>
-
-    <div class="part-section" id="design-part3">
-      <h3>الجزء الثالث: تطبيق عملي</h3>
-      <p>تنفيذ مشروع تصميم شعار باستخدام الأدوات.</p>
-    </div>
-
-    <div class="part-section" id="web-part1">
-      <h3>الجزء الأول: HTML</h3>
-      <p>تعلم بناء هيكل الصفحة باستخدام HTML.</p>
-    </div>
-
-    <div class="part-section" id="web-part2">
-      <h3>الجزء الثاني: CSS</h3>
-      <p>تنسيق الصفحة باستخدام CSS.</p>
-    </div>
-
-    <div class="part-section" id="web-part3">
-      <h3>الجزء الثالث: مشروع نهائي</h3>
-      <p>بناء صفحة ويب بسيطة كمشروع تطبيقي.</p>
-    </div>
-
   </main>
 
-  <!-- الشريط السفلي -->
   <footer>
-    <p>اختر الورشة التي تناسبك وابدأ التعلم مجانًا الآن!</p>
+    <p>جميع الورش مجانية ومفتوحة للجميع. سجل الآن وطور مهاراتك مع نخبة من المدربين.</p>
   </footer>
 
-  <!-- شريط التوقيع -->
   <div class="credit-bar">
     تصميم وتطوير : <a href="https://wa.me/967775095932" target="_blank">Cyber Aden</a>
   </div>
@@ -284,4 +261,14 @@
       const menu = document.getElementById("sideMenu");
       const overlay = document.getElementById("overlay");
       menu.classList.toggle("open");
-      overlay.style
+      overlay.style.display = menu.classList.contains("open") ? "block" : "none";
+    }
+
+    function toggleDetails(card) {
+      const details = card.querySelector(".workshop-details");
+      details.style.display = details.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>
