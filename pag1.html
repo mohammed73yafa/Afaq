@@ -1,148 +1,281 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>الورش المجانية - منصة أفق</title>
-  <link rel="stylesheet" href="style.css" /> <!-- ملف التنسيقات الرئيسي -->
-  <style>
-    main {
-      padding: 40px 20px;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الورش المجانية - منصة أفق</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
+        /* الشريط العلوي */
+        header {
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
 
-    .workshop-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 20px auto;
-      max-width: 400px;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: 0.3s;
-      background-color: #fff;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-    .workshop-card:hover {
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+        .logo img {
+            height: 80px;
+        }
 
-    .workshop-card img {
-      width: 100%;
-      border-radius: 6px;
-    }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-    .workshop-card h2 {
-      font-size: 22px;
-      margin: 10px 0 5px;
-    }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
 
-    .workshop-card p {
-      font-size: 16px;
-      color: #666;
-      margin: 0;
-    }
+        .menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #333;
+        }
 
-    .parts-list {
-      display: none;
-      margin-top: 15px;
-      text-align: right;
-    }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: none;
+            z-index: 999;
+        }
 
-    .parts-list a {
-      display: block;
-      text-decoration: none;
-      color: #0077cc;
-      margin: 8px 0;
-      font-size: 15px;
-    }
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 260px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
 
-    .parts-list a:hover {
-      text-decoration: underline;
-    }
-  </style>
+        .side-menu.open {
+            left: 0;
+        }
+
+        .side-menu .close-btn {
+            font-size: 26px;
+            cursor: pointer;
+            color: #fff;
+            text-align: left;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .side-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 16px;
+        }
+
+        .side-menu a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* المحتوى الرئيسي */
+        main {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        main h1 {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        .workshop-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .workshop-card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .workshop-card:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .workshop-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .workshop-card h2 {
+            font-size: 20px;
+            margin: 10px 0 5px;
+        }
+
+        .workshop-card p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+        }
+
+        .parts-list {
+            display: none;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .parts-list a {
+            display: block;
+            text-decoration: none;
+            color: #0077cc;
+            margin: 5px 0;
+            font-size: 15px;
+        }
+
+        .parts-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* الشريط السفلي */
+        footer {
+            background-color: #FFD700;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .credit-bar {
+            background-color: #e6b800;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .credit-bar a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ✅ الشريط العلوي -->
-  <header>
-    <div class="logo">منصة أفق</div>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="trainers.html">المدربون</a>
-      <a href="workshops.html" class="active">الورش المجانية</a>
-      <a href="contact.html">تواصل معنا</a>
-    </nav>
-  </header>
+    <!-- الخلفية الشفافة -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-  <!-- 📋 القائمة الجانبية -->
-  <div class="side-menu">
-    <ul>
-      <li><a href="index.html">🏠 الرئيسية</a></li>
-      <li><a href="trainers.html">👩‍🏫 المدربون</a></li>
-      <li><a href="workshops.html">🧠 الورش المجانية</a></li>
-      <li><a href="contact.html">📞 تواصل معنا</a></li>
-    </ul>
-  </div>
-
-  <!-- 🧠 محتوى الورش -->
-  <main>
-    <h1>الورش المجانية</h1>
-
-    <!-- ورشة 1 -->
-    <div class="workshop-card" onclick="toggleParts('parts1')">
-      <img src="workshop1.jpg" alt="ورشة تطوير الذات" />
-      <h2>ورشة تطوير الذات</h2>
-      <p>المدرب: أ. محمد عبد الله</p>
-      <div class="parts-list" id="parts1">
-        <a href="https://t.me/part1_link" target="_blank">الجزء الأول</a>
-        <a href="https://t.me/part2_link" target="_blank">الجزء الثاني</a>
-        <a href="https://t.me/part3_link" target="_blank">الجزء الثالث</a>
-      </div>
+    <!-- القائمة الجانبية -->
+    <div class="side-menu" id="sideMenu">
+        <span class="close-btn" onclick="toggleMenu()">✖ إغلاق</span>
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="pag1.html">الورش المجانية</a>
+        <a href="pag2.html">اتصل بنا</a>
+        <a href="mder.html">مدربينا</a>
     </div>
 
-    <!-- ورشة 2 -->
-    <div class="workshop-card" onclick="toggleParts('parts2')">
-      <img src="workshop2.jpg" alt="ورشة إدارة الوقت" />
-      <h2>ورشة إدارة الوقت</h2>
-      <p>المدرب: د. سارة النور</p>
-      <div class="parts-list" id="parts2">
-        <a href="https://t.me/time1" target="_blank">الجزء الأول</a>
-        <a href="https://t.me/time2" target="_blank">الجزء الثاني</a>
-      </div>
-    </div>
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="شعار المنصة">
+            <nav>
+                <a href="index.html">الصفحة الرئيسية</a>
+                <a href="about.html">معلومات عنا</a>
+                <a href="pag.html">استكشاف الدورات</a>
+            </nav>
+        </div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
 
-    <!-- ورشة 3 -->
-    <div class="workshop-card" onclick="toggleParts('parts3')">
-      <img src="workshop3.jpg" alt="ورشة التفكير الإبداعي" />
-      <h2>ورشة التفكير الإبداعي</h2>
-      <p>المدرب: أ. ريم عثمان</p>
-      <div class="parts-list" id="parts3">
-        <a href="https://t.me/creative1" target="_blank">الجزء الأول</a>
-        <a href="https://t.me/creative2" target="_blank">الجزء الثاني</a>
-        <a href="https://t.me/creative3" target="_blank">الجزء الثالث</a>
-      </div>
-    </div>
-  </main>
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <h1>الورش المجانية</h1>
+        <div class="workshop-container">
 
-  <!-- 🖋️ توقيع المصمم -->
-  <footer>
+            <!-- ورشة 1 -->
+            <div class="workshop-card" onclick="toggleParts('parts1')">
+                <img src="workshop1.jpg" alt="ورشة تطوير الذات">
+                <h2>ورشة تطوير الذات</h2>
+                <p>المدرب: أ. محمد عبد الله</p>
+                <div class="parts-list" id="parts1">
+                    <a href="https://t.me/part1_link" target="_blank">الجزء الأول</a>
+                    <a href="https://t.me/part2_link" target="_blank">الجزء الثاني</a>
+                    <a href="https://t.me/part3_link" target="_blank">الجزء الثالث</a>
+                </div>
+            </div>
+
+            <!-- ورشة 2 -->
+            <div class="workshop-card" onclick="toggleParts('parts2')">
+                <img src="workshop2.jpg" alt="ورشة إدارة الوقت">
+                <h2>ورشة إدارة الوقت</h2>
+                <p>المدرب: د. سارة النور</p>
+                <div class="parts-list" id="parts2">
+                    <a href="https://t.me/time1" target="_blank">الجزء الأول</a>
+                    <a href="https://t.me/time2" target="_blank">الجزء الثاني</a>
+                </div>
+            </div>
+
+            <!-- ورشة 3 -->
+            <div class="workshop-card" onclick="toggleParts('parts3')">
+                <img src="workshop3.jpg" alt="ورشة التفكير الإبداعي">
+                <h2>ورشة التفكير الإبداعي</h2>
+                <p>المدرب: أ. ريم عثمان</p>
+                <div class="parts-list" id="parts3">
+                    <a href="https://t.me/creative1" target="_blank">الجزء الأول</a>
+                    <a href="https://t.me/creative2" target="_blank">الجزء الثاني</a>
+                    <a href="https://t.me/creative3" target="_blank">الجزء الثالث</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- الشريط السفلي -->
+    <footer>
+        <h2>-الورش المجانية-</h2>
+        <p>نقدم مجموعة من الورش التدريبية المجانية التي تهدف إلى تطوير المهارات الشخصية والمهنية، بقيادة نخبة من المدربين المتخصصين.</p>
+    </footer>
+
+    <!-- شريط التوقيع -->
     <div class="credit-bar">
-      تصميم وتطوير: <strong>أ. أحمد البكري</strong> © 2025
+        تصميم وتطوير : <a href="https://wa.me/967775095932" target="_blank">Cyber Aden</a>
     </div>
-  </footer>
 
-  <script>
-    function toggleParts(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === "block" ? "none" : "block";
-    }
-  </script>
-
-</body>
-</html>
