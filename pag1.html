@@ -1,281 +1,287 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الورش المجانية - منصة أفق</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الورش المجانية - منصة أفق</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
 
-        /* الشريط العلوي */
-        header {
-            background-color: #f4f4f4;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-        }
+    /* الشريط العلوي */
+    header {
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-        .logo img {
-            height: 80px;
-        }
+    .logo img {
+      height: 80px;
+    }
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
 
-        .menu-btn {
-            font-size: 30px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: #333;
-        }
+    .menu-btn {
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #333;
+    }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.4);
-            display: none;
-            z-index: 999;
-        }
+    /* القائمة الجانبية */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      z-index: 999;
+    }
 
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 260px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            transition: left 0.3s ease;
-            z-index: 1000;
-        }
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 260px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
 
-        .side-menu.open {
-            left: 0;
-        }
+    .side-menu.open {
+      left: 0;
+    }
 
-        .side-menu .close-btn {
-            font-size: 26px;
-            cursor: pointer;
-            color: #fff;
-            text-align: left;
-            margin-bottom: 20px;
-            display: block;
-        }
+    .side-menu .close-btn {
+      font-size: 26px;
+      cursor: pointer;
+      color: #fff;
+      text-align: left;
+      margin-bottom: 20px;
+      display: block;
+    }
 
-        .side-menu a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            font-size: 16px;
-        }
+    .side-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: 16px;
+    }
 
-        .side-menu a:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
+    .side-menu a:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
 
-        /* المحتوى الرئيسي */
-        main {
-            padding: 50px 20px;
-            text-align: center;
-        }
+    /* المحتوى الرئيسي */
+    main {
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-        main h1 {
-            font-size: 42px;
-            margin-bottom: 30px;
-        }
+    main h1 {
+      font-size: 42px;
+      margin-bottom: 30px;
+    }
 
-        .workshop-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
+    .workshop {
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #fafafa;
+    }
 
-        .workshop-card {
-            width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            cursor: pointer;
-        }
+    .workshop h2 {
+      margin-top: 0;
+      color: #0077cc;
+    }
 
-        .workshop-card:hover {
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+    .parts-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 20px;
+    }
 
-        .workshop-card img {
-            width: 100%;
-            border-radius: 8px;
-        }
+    .parts-list li {
+      margin: 8px 0;
+    }
 
-        .workshop-card h2 {
-            font-size: 20px;
-            margin: 10px 0 5px;
-        }
+    .parts-list a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
 
-        .workshop-card p {
-            font-size: 16px;
-            color: #666;
-            margin: 0;
-        }
+    .parts-list a:hover {
+      text-decoration: underline;
+    }
 
-        .parts-list {
-            display: none;
-            margin-top: 10px;
-            text-align: right;
-        }
+    .part-section {
+      margin: 60px auto;
+      max-width: 800px;
+      padding: 20px;
+      border-top: 2px solid #0077cc;
+    }
 
-        .parts-list a {
-            display: block;
-            text-decoration: none;
-            color: #0077cc;
-            margin: 5px 0;
-            font-size: 15px;
-        }
+    .part-section h3 {
+      margin-top: 0;
+      color: #333;
+    }
 
-        .parts-list a:hover {
-            text-decoration: underline;
-        }
+    footer {
+      background-color: #FFD700;
+      text-align: center;
+      padding: 20px;
+    }
 
-        /* الشريط السفلي */
-        footer {
-            background-color: #FFD700;
-            text-align: center;
-            padding: 20px;
-        }
+    footer p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
 
-        footer h2 {
-            margin: 0;
-            font-size: 24px;
-        }
+    .credit-bar {
+      background-color: #e6b800;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
 
-        footer p {
-            margin: 10px 0;
-            line-height: 1.6;
-        }
-
-        .credit-bar {
-            background-color: #e6b800;
-            text-align: center;
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        .credit-bar a {
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+    .credit-bar a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- الخلفية الشفافة -->
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+  <!-- الخلفية الشفافة -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-    <!-- القائمة الجانبية -->
-    <div class="side-menu" id="sideMenu">
-        <span class="close-btn" onclick="toggleMenu()">✖ إغلاق</span>
-        <a href="index.html">الصفحة الرئيسية</a>
-        <a href="pag1.html">الورش المجانية</a>
-        <a href="pag2.html">اتصل بنا</a>
-        <a href="mder.html">مدربينا</a>
+  <!-- القائمة الجانبية -->
+  <div class="side-menu" id="sideMenu">
+    <span class="close-btn" onclick="toggleMenu()">✖ إغلاق</span>
+    <a href="index.html">الصفحة الرئيسية</a>
+    <a href="pag1.html">الورش المجانية</a>
+    <a href="pag2.html">اتصل بنا</a>
+    <a href="mder.html">مدربينا</a>
+  </div>
+
+  <!-- الشريط العلوي -->
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="شعار المنصة">
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">من نحن</a>
+        <a href="pag.html">الدورات</a>
+      </nav>
+    </div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main>
+    <h1>الورش المجانية</h1>
+
+    <!-- ورشة 1 -->
+    <div class="workshop">
+      <h2>ورشة تصميم جرافيك</h2>
+      <ul class="parts-list">
+        <li><a href="#design-part1">الجزء الأول: مقدمة</a></li>
+        <li><a href="#design-part2">الجزء الثاني: أدوات مجانية</a></li>
+        <li><a href="#design-part3">الجزء الثالث: تطبيق عملي</a></li>
+      </ul>
     </div>
 
-    <!-- الشريط العلوي -->
-    <header>
-        <div class="logo">
-            <img src="logo.jpg" alt="شعار المنصة">
-            <nav>
-                <a href="index.html">الصفحة الرئيسية</a>
-                <a href="about.html">معلومات عنا</a>
-                <a href="pag.html">استكشاف الدورات</a>
-            </nav>
-        </div>
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    </header>
-
-    <!-- المحتوى الرئيسي -->
-    <main>
-        <h1>الورش المجانية</h1>
-        <div class="workshop-container">
-
-            <!-- ورشة 1 -->
-            <div class="workshop-card" onclick="toggleParts('parts1')">
-                <img src="workshop1.jpg" alt="ورشة تطوير الذات">
-                <h2>ورشة تطوير الذات</h2>
-                <p>المدرب: أ. محمد عبد الله</p>
-                <div class="parts-list" id="parts1">
-                    <a href="https://t.me/part1_link" target="_blank">الجزء الأول</a>
-                    <a href="https://t.me/part2_link" target="_blank">الجزء الثاني</a>
-                    <a href="https://t.me/part3_link" target="_blank">الجزء الثالث</a>
-                </div>
-            </div>
-
-            <!-- ورشة 2 -->
-            <div class="workshop-card" onclick="toggleParts('parts2')">
-                <img src="workshop2.jpg" alt="ورشة إدارة الوقت">
-                <h2>ورشة إدارة الوقت</h2>
-                <p>المدرب: د. سارة النور</p>
-                <div class="parts-list" id="parts2">
-                    <a href="https://t.me/time1" target="_blank">الجزء الأول</a>
-                    <a href="https://t.me/time2" target="_blank">الجزء الثاني</a>
-                </div>
-            </div>
-
-            <!-- ورشة 3 -->
-            <div class="workshop-card" onclick="toggleParts('parts3')">
-                <img src="workshop3.jpg" alt="ورشة التفكير الإبداعي">
-                <h2>ورشة التفكير الإبداعي</h2>
-                <p>المدرب: أ. ريم عثمان</p>
-                <div class="parts-list" id="parts3">
-                    <a href="https://t.me/creative1" target="_blank">الجزء الأول</a>
-                    <a href="https://t.me/creative2" target="_blank">الجزء الثاني</a>
-                    <a href="https://t.me/creative3" target="_blank">الجزء الثالث</a>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- الشريط السفلي -->
-    <footer>
-        <h2>-الورش المجانية-</h2>
-        <p>نقدم مجموعة من الورش التدريبية المجانية التي تهدف إلى تطوير المهارات الشخصية والمهنية، بقيادة نخبة من المدربين المتخصصين.</p>
-    </footer>
-
-    <!-- شريط التوقيع -->
-    <div class="credit-bar">
-        تصميم وتطوير : <a href="https://wa.me/967775095932" target="_blank">Cyber Aden</a>
+    <!-- ورشة 2 -->
+    <div class="workshop">
+      <h2>ورشة تطوير مواقع</h2>
+      <ul class="parts-list">
+        <li><a href="#web-part1">الجزء الأول: HTML</a></li>
+        <li><a href="#web-part2">الجزء الثاني: CSS</a></li>
+        <li><a href="#web-part3">الجزء الثالث: مشروع نهائي</a></li>
+      </ul>
     </div>
 
+    <!-- أقسام الورش -->
+    <div class="part-section" id="design-part1">
+      <h3>الجزء الأول: مقدمة</h3>
+      <p>مقدمة في مفاهيم التصميم الجرافيكي وأهميته.</p>
+    </div>
+
+    <div class="part-section" id="design-part2">
+      <h3>الجزء الثاني: أدوات مجانية</h3>
+      <p>استخدام أدوات مثل Canva وPhotopea لتصميم احترافي.</p>
+    </div>
+
+    <div class="part-section" id="design-part3">
+      <h3>الجزء الثالث: تطبيق عملي</h3>
+      <p>تنفيذ مشروع تصميم شعار باستخدام الأدوات.</p>
+    </div>
+
+    <div class="part-section" id="web-part1">
+      <h3>الجزء الأول: HTML</h3>
+      <p>تعلم بناء هيكل الصفحة باستخدام HTML.</p>
+    </div>
+
+    <div class="part-section" id="web-part2">
+      <h3>الجزء الثاني: CSS</h3>
+      <p>تنسيق الصفحة باستخدام CSS.</p>
+    </div>
+
+    <div class="part-section" id="web-part3">
+      <h3>الجزء الثالث: مشروع نهائي</h3>
+      <p>بناء صفحة ويب بسيطة كمشروع تطبيقي.</p>
+    </div>
+
+  </main>
+
+  <!-- الشريط السفلي -->
+  <footer>
+    <p>اختر الورشة التي تناسبك وابدأ التعلم مجانًا الآن!</p>
+  </footer>
+
+  <!-- شريط التوقيع -->
+  <div class="credit-bar">
+    تصميم وتطوير : <a href="https://wa.me/967775095932" target="_blank">Cyber Aden</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("sideMenu");
+      const overlay = document.getElementById("overlay");
+      menu.classList.toggle("open");
+      overlay.style
