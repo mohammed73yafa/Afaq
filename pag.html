@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>الدورات المدفوعة - منصة أفق</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الدورات المدفوعة</title>
   <style>
     body {
       margin: 0;
@@ -12,7 +12,6 @@
       color: #333;
     }
 
-    /* الشريط العلوي */
     header {
       background-color: #f4f4f4;
       display: flex;
@@ -24,7 +23,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
     }
 
     .logo img {
@@ -101,7 +100,6 @@
       background-color: rgba(255,255,255,0.1);
     }
 
-    /* المحتوى الرئيسي */
     main {
       text-align: center;
       padding: 50px 20px;
@@ -109,62 +107,65 @@
 
     main h1 {
       font-size: 42px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
-    .course-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+    .yellow-box {
+      background-color: #FFD700;
+      padding: 10px 20px;
+      display: inline-block;
+      margin: 20px auto;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+      padding: 0 20px;
     }
 
     .course-card {
-      width: 300px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      background-color: #ffe6cc;
       padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
 
     .course-card:hover {
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transform: scale(1.02);
     }
 
     .course-card img {
       width: 100%;
-      border-radius: 8px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
     }
 
-    .course-card h2 {
-      font-size: 20px;
-      margin: 10px 0 5px;
+    .course-title {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #cc5500;
     }
 
-    .course-card p {
-      font-size: 16px;
-      color: #666;
-      margin: 5px 0;
+    .course-trainer {
+      font-size: 14px;
+      color: #333;
+      margin-top: 5px;
     }
 
-    /* الشريط السفلي */
     footer {
       background-color: #FFD700;
       text-align: center;
       padding: 20px;
-    }
-
-    footer h2 {
-      margin: 0;
-      font-size: 24px;
-    }
-
-    footer p {
-      margin: 10px 0;
-      line-height: 1.6;
     }
 
     .credit-bar {
@@ -183,19 +184,18 @@
 </head>
 <body>
 
-  <!-- الخلفية الشفافة -->
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-  <!-- القائمة الجانبية -->
   <div class="side-menu" id="sideMenu">
     <span class="close-btn" onclick="toggleMenu()">✖ إغلاق</span>
     <a href="index.html">الصفحة الرئيسية</a>
+    <a href="about.html">معلومات عنا</a>
+    <a href="pag.html">الدورات</a>
     <a href="pag1.html">الورش المجانية</a>
     <a href="pag2.html">اتصل بنا</a>
     <a href="mder.html">مدربينا</a>
   </div>
 
-  <!-- الشريط العلوي -->
   <header>
     <div class="logo">
       <img src="logo.jpg" alt="شعار المنصة">
@@ -208,45 +208,33 @@
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </header>
 
-  <!-- المحتوى الرئيسي -->
   <main>
-    <h1>الدورات المدفوعة</h1>
-    <div class="course-container">
+    <h1>منصة أفق للتدريب والاستشارات</h1>
+    <div class="yellow-box">الدورات المدفوعة</div>
 
+    <div class="courses">
       <!-- دورة 1 -->
-      <a href="https://wa.me/967775095932?text=أرغب بالتسجيل في دورة القيادة الفعالة" target="_blank" class="course-card">
-        <img src="course1.jpg" alt="دورة القيادة الفعالة">
-        <h2>دورة القيادة الفعالة</h2>
-        <p>المدرب: د. أحمد الفاضل</p>
-        <p>المدة: 4 أسابيع</p>
-      </a>
+      <div class="course-card" onclick="window.open('https://wa.me/967775095932?text=أرغب بالتسجيل في دورة القيادة الفعالة', '_blank')">
+        <img src="paid1.jpg" alt="دورة القيادة">
+        <div class="course-title">دورة القيادة الفعالة</div>
+        <div class="course-trainer">د. سامي عبد الرحمن</div>
+      </div>
 
       <!-- دورة 2 -->
-      <a href="https://wa.me/967775095932?text=أرغب بالتسجيل في دورة التسويق الرقمي" target="_blank" class="course-card">
-        <img src="course2.jpg" alt="دورة التسويق الرقمي">
-        <h2>دورة التسويق الرقمي</h2>
-        <p>المدرب: أ. سارة عبد الله</p>
-        <p>المدة: 3 أسابيع</p>
-      </a>
+      <div class="course-card" onclick="window.open('https://wa.me/967775095932?text=أرغب بالتسجيل في دورة إدارة المشاريع', '_blank')">
+        <img src="paid2.jpg" alt="دورة المشاريع">
+        <div class="course-title">دورة إدارة المشاريع</div>
+        <div class="course-trainer">أ. نجلاء سعيد</div>
+      </div>
 
-      <!-- دورة 3 -->
-      <a href="https://wa.me/967775095932?text=أرغب بالتسجيل في دورة إدارة المشاريع" target="_blank" class="course-card">
-        <img src="course3.jpg" alt="دورة إدارة المشاريع">
-        <h2>دورة إدارة المشاريع</h2>
-        <p>المدرب: م. خالد النور</p>
-        <p>المدة: 5 أسابيع</p>
-      </a>
-
+      <!-- أضف المزيد بنفس التنسيق -->
     </div>
   </main>
 
-  <!-- الشريط السفلي -->
   <footer>
-    <h2>-الدورات المدفوعة-</h2>
-    <p>اختر الدورة التي تناسبك، وتواصل معنا عبر WhatsApp للتسجيل أو الاستفسار. جميع الدورات تقدم بإشراف مدربين محترفين وبمحتوى عالي الجودة.</p>
+    <p>جميع الدورات تقدم بمحتوى احترافي وشهادات معتمدة. للتسجيل اضغط على الدورة للتواصل عبر واتساب.</p>
   </footer>
 
-  <!-- شريط التوقيع -->
   <div class="credit-bar">
     تصميم وتطوير : <a href="https://wa.me/967775095932" target="_blank">Cyber Aden</a>
   </div>
@@ -262,3 +250,4 @@
 
 </body>
 </html>
+
