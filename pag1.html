@@ -158,7 +158,7 @@
       margin-top: 5px;
     }
 
-    .workshop-details {
+    .workshop-parts {
       display: none;
       text-align: right;
       margin-top: 10px;
@@ -166,6 +166,18 @@
       background-color: #fff3aa;
       padding: 10px;
       border-radius: 6px;
+    }
+
+    .workshop-parts a {
+      display: block;
+      text-decoration: none;
+      color: #0077cc;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .workshop-parts a:hover {
+      background-color: #ffe680;
     }
 
     footer {
@@ -219,32 +231,29 @@
     <div class="yellow-box">الورش المجانية</div>
 
     <div class="workshops">
-      <!-- نموذج ورشة -->
-      <div class="workshop-card" onclick="toggleDetails(this)">
-        <img src="workshop1.jpg" alt="ورشة 1">
+      <!-- ورشة 1 -->
+      <div class="workshop-card" onclick="toggleParts(this)">
+        <img src="workshop1.jpg" alt="ورشة التخطيط">
         <div class="workshop-title">ورشة التخطيط الشخصي</div>
         <div class="workshop-trainer">د. أحمد حسن المبارك</div>
-        <div class="workshop-details">
-          🗓 التاريخ: 15 أغسطس 2025<br>
-          ⏰ الوقت: 5 مساءً بتوقيت عدن<br>
-          📍 المكان: عبر Zoom<br>
-          🎯 محاور الورشة: تحديد الأهداف، إدارة الوقت، بناء خطة شخصية
+        <div class="workshop-parts">
+          <a href="part1.html">الجزء الأول: تحديد الأهداف</a>
+          <a href="part2.html">الجزء الثاني: إدارة الوقت</a>
+          <a href="part3.html">الجزء الثالث: بناء خطة شخصية</a>
         </div>
       </div>
 
-      <div class="workshop-card" onclick="toggleDetails(this)">
-        <img src="workshop2.jpg" alt="ورشة 2">
+      <!-- ورشة 2 -->
+      <div class="workshop-card" onclick="toggleParts(this)">
+        <img src="workshop2.jpg" alt="ورشة التواصل">
         <div class="workshop-title">ورشة مهارات التواصل</div>
         <div class="workshop-trainer">أ. عبير عيسى</div>
-        <div class="workshop-details">
-          🗓 التاريخ: 20 أغسطس 2025<br>
-          ⏰ الوقت: 7 مساءً<br>
-          📍 المكان: مركز أفق - عدن<br>
-          🎯 محاور الورشة: فن الإنصات، لغة الجسد، التواصل الفعال
+        <div class="workshop-parts">
+          <a href="comm1.html">الجزء الأول: فن الإنصات</a>
+          <a href="comm2.html">الجزء الثاني: لغة الجسد</a>
+          <a href="comm3.html">الجزء الثالث: التواصل الفعال</a>
         </div>
       </div>
-
-      <!-- أضف المزيد بنفس التنسيق -->
     </div>
   </main>
 
@@ -264,9 +273,9 @@
       overlay.style.display = menu.classList.contains("open") ? "block" : "none";
     }
 
-    function toggleDetails(card) {
-      const details = card.querySelector(".workshop-details");
-      details.style.display = details.style.display === "block" ? "none" : "block";
+    function toggleParts(card) {
+      const parts = card.querySelector(".workshop-parts");
+      parts.style.display = parts.style.display === "block" ? "none" : "block";
     }
   </script>
 
