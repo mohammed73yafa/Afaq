@@ -11,7 +11,90 @@
             background-color: #fff;
             color: #333;
         }
+/* استدعاء مكتبة الأيقونات (ضروري) */
+@import url("https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css");
 
+.contact-card{
+  padding:20px;
+  background:#111827;
+  border-radius:20px;
+  color:#e5e7eb;
+  max-width:500px;
+  margin:auto;
+}
+
+.title{
+  margin-bottom:15px;
+  font-size:20px;
+  text-align:center;
+}
+
+.contact-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:15px;
+}
+
+.contact-chip{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 12px;
+  border-radius:30px;
+  background:#1f2937;
+  color:#fff;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.contact-chip:hover{
+  background:#10b981;
+}
+
+.contact-chip i{
+  font-size:18px;
+}
+
+.social-grid{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.social-btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:45px;
+  height:45px;
+  border-radius:12px;
+  background:#1f2937;
+  color:#9ca3af; /* رمادي */
+  font-size:22px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.social-btn:hover{
+  color:#fff;
+  background:#374151;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+        
         /* الشريط العلوي */
         header {
             background-color: #f4f4f4;
@@ -201,8 +284,64 @@
        <p>
            تمكين الأفراد من تحقيق التميز والتطور من خلال تقديم برامج تدريبية متكاملة واستشارات متخصصة، تجمع بين المعرفة العملية والمهارة الاحترافية، مع التركيز على تعزيز الصحة النفسية لطلبة الدراسات العليا، ومنصة متنوعة تلبي احتياجات الأفراد والمؤسسات
        </p> 
+
+
+
+
+        <!-- روابط التواصل -->
+<section class="contact-card">
+  <h1 class="title">وسائل التواصل</h1>
+
+  <!-- السطر الأول -->
+  <div class="contact-row">
+    <!-- واتساب -->
+    <a class="contact-chip" href="https://wa.me/967700000000" target="_blank" rel="noopener">
+      <i class="ri-whatsapp-line"></i>
+      <span class="label">واتساب</span>
+    </a>
+
+    <!-- جوال -->
+    <a class="contact-chip" href="tel:+967700000000">
+      <i class="ri-phone-fill"></i>
+      <span class="label">جوال</span>
+    </a>
+
+    <!-- ايميل -->
+    <a class="contact-chip" href="mailto:example@email.com">
+      <i class="ri-mail-line"></i>
+      <span class="label">ايميل</span>
+    </a>
+  </div>
+
+  <!-- الشبكات الاجتماعية -->
+  <div class="social-grid">
+    <a class="social-btn" href="https://www.tiktok.com/@youruser" target="_blank" rel="noopener">
+      <i class="ri-tiktok-fill"></i>
+    </a>
+    <a class="social-btn" href="https://instagram.com/youruser" target="_blank" rel="noopener">
+      <i class="ri-instagram-line"></i>
+    </a>
+    <a class="social-btn" href="https://t.me/youruser" target="_blank" rel="noopener">
+      <i class="ri-telegram-line"></i>
+    </a>
+    <a class="social-btn" href="https://facebook.com/youruser" target="_blank" rel="noopener">
+      <i class="ri-facebook-circle-line"></i>
+    </a>
+  </div>
+</section>
     </footer>
 
+
+
+
+
+
+
+
+
+
+
+    
     <!-- شريط التوقيع -->
     <div class="credit-bar">
         تصميم وتطوير  :<a href="https://wa.me/967775095932" target="_blank">Cyber Aden</a>
@@ -224,4 +363,5 @@
 </body>
 
 </html>
+
 
